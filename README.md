@@ -162,6 +162,8 @@ border-radius: 4px
 
 ###SASS Style
 
+We use the [Sass Indented Syntax](http://sass-lang.com/documentation/file.INDENTED_SYNTAX.html). Do not write SCSS (sassy CSS).
+
 If any ```$variable``` is *used in multiple file*, it should be put in base/_vars.sass. Others should be put at the top of the file where they're used.
 
 If a ```@mixin``` is being *used in more than only file* it should be placed either in the context that it's being used (only used in checkout). If the ```@mixin``` is useful site wide, please put it base/_functions.sass. 
