@@ -25,6 +25,7 @@ Welcome to the Williams-Sonoma CSS Styleguide. Before reading this, you should h
 * All font sizes must be specified using pixels. Do not use percentages, ems, or rems. We are looking into using rems with a px fall back. For now please stick to px.
 * Do not use units with zero values
 * Do not use units on line-height 
+
 ```
 // Good
 .cell-display
@@ -47,7 +48,7 @@ Welcome to the Williams-Sonoma CSS Styleguide. Before reading this, you should h
 
 * Do not write IDs in your markup for styling purposes. This leads to overspecificity that is not welcome in our code.
 
-* Try not to use 2 or more IDs in your definitions. You will see this in lots of places in our code and this is unfortunate. It has created serious specificity issues that will cause you headaches. Please do not follow this multiple ID selector pattern. Instead, try to take this opportunity to refactor this old code and think about ways you can avoid using IDs.
+* Try not to use 2 or more IDs in your definitions. You will see multiple IDs in many of places in our code. This is unfortunate. These IDs have created serious specificity issues that will cause you headaches. Please do not follow this multiple ID selector pattern. Instead, try to take this opportunity to refactor this old code and think about ways you can avoid using IDs.
 
 * Do not use !important at any time. That being said, there are a few exceptions to this, however none of the exceptions can be used without consulting your FED team members. Do not even think about using the xpath to resolve a specificity issue. That would be bad.
 
@@ -62,7 +63,8 @@ Welcome to the Williams-Sonoma CSS Styleguide. Before reading this, you should h
     width: 300px !important
 ```
 
-Use semantic naming conventions. This means selectors should derive their meaning from context, not presentation or style. 
+###semantic naming conventions 
+Selectors should derive their meaning from context, not presentation or style. 
 
 ```
 // Good
@@ -73,6 +75,8 @@ Use semantic naming conventions. This means selectors should derive their meanin
 .purple-vanity-header
     color: #9329D1
 ```
+
+###Class Qualification
 
 Do not over-qualify class name selectors with an element type unless you are specifying exceptions to the default styling of a particular class.
 
@@ -104,6 +108,20 @@ Please try using ```overflow: hidden``` as your first option for a clearfix. Oth
     zoom: 1
 ```
 
+###url() value
+When using a url() value, always use quotes around the URL. 
+
+```
+//Good
+.reg-header 
+    background: url("img/logo.png")
+
+
+// Bad - missing quotes
+.reg-header
+    background: url(img/logo.png)
+}
+```
 
 ###common styles:
 please be sure to look in general/_common.sass before building a separate css definition. The examples below are some common definitions in _common.sass
@@ -147,8 +165,6 @@ If any ```$variable``` is *used in multiple file*, it should be put in base/_var
 
 If a ```@mixin``` is being *used in more than only file* it should be placed either in the context that it's being used (only used in checkout). If the ```@mixin``` is useful site wide, please put it base/_functions.sass. 
 
-As a rule of thumb, *don't nest further than 3 levels deep*. If you find yourself going further, think about every selector and the specificity that has been added to each rule. Your goal is to eliminate as much specificity as possible before moving forward. 
-
 Spaces. While indentation, property, and definition spacing is controlled by the Sass compiler, property declarations are not. Please put a space after commas. Example:
 
 ```
@@ -161,18 +177,30 @@ Bad:
     font-family: comic-sans,Arial,Helvitica,Verdana
 ```
 
-When using a url() value, always use quotes around the URL. 
+
+####Nesting
+As a rule of thumb, *don't nest further than 3 levels deep*. If you find yourself going further, think about every selector and the specificity that has been added to each rule. Your goal is to eliminate as much specificity as possible before moving forward. 
 
 ```
-//Good
-.reg-header 
-    background: url("img/logo.png")
+//good
+.cell-display
+    width: 200px
+    .cell-description 
+        line-height: 1.2
+.cell-display-image
+    border: 1px solid #000
+    span
+        margin: 10px 0
 
-
-// Bad - missing quotes
-.reg-header
-    background: url(img/logo.png)
-}
+// bad
+.cell-display
+    width: 200px
+    .cell-description
+        line-height: 1.2
+        .cell-display-image
+            border: 1px solid #000
+            span
+                margin: 10px 0
 ```
 
 ####Internet Explorer Hacks
