@@ -65,7 +65,7 @@ We borrow a lot from the OOCSS Code Standards
     width: 300px !important
 ```
 
-###semantic naming conventions 
+###Semantic Naming Conventions 
 Selectors should derive their meaning from context, not presentation or style. 
 
 ```
