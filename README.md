@@ -1,6 +1,8 @@
 # Williams-Sonoma CSS/SASS Style Guide 
 
-Welcome to the Williams-Sonoma CSS Styleguide. Before reading this, you should have a general understanding of [specificity](http://css-tricks.com/specifics-on-css-specificity/), [SASS syntax](http://sass-lang.com/docs/yardoc/file.INDENTED_SYNTAX.html), and [OOCSS Code Standards](https://github.com/stubbornella/oocss-code-standards).
+Before reading this, you should have a general understanding of [specificity](http://css-tricks.com/specifics-on-css-specificity/), [SASS syntax](http://sass-lang.com/docs/yardoc/file.INDENTED_SYNTAX.html), and [OOCSS Code Standards](https://github.com/stubbornella/oocss-code-standards).
+
+We borrow a lot from the OOCSS Code Standards 
 
 ##Coding Style
 
@@ -24,7 +26,7 @@ Welcome to the Williams-Sonoma CSS Styleguide. Before reading this, you should h
 
 * All font sizes must be specified using pixels. Do not use percentages, ems, or rems. We are looking into using rems with a px fall back. For now please stick to px.
 * Do not use units with zero values
-* Do not use units on line-height 
+* Do not use units on line-height
 
 ```
 // Good
