@@ -103,7 +103,6 @@ Please try using ```overflow: hidden``` as your first option for a clearfix. Oth
 
 .clearfix-micro:after
     clear: both
-}
 
 //For IE7 only
 .ie7 .clearfix-micro
