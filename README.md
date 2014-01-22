@@ -78,9 +78,9 @@ Selectors should derive their meaning from context, not presentation or style.
     color: #9329D1
 ```
 
-###Class Qualification
+###Class and ID Qualification
 
-Do not over-qualify class name selectors with an element type unless you are specifying exceptions to the default styling of a particular class.
+Do not over-qualify class or ID name selectors with an element type unless you are specifying exceptions to the default styling of a particular class or ID.
 
 ```
 // Good
@@ -88,8 +88,13 @@ Do not over-qualify class name selectors with an element type unless you are spe
     width: 20px
 
 // Bad
-div#cell-display
+div.cell-display
     width: 20px
+
+// Bad (very bad)
+div#content
+    width: 20px
+
 ```
 ### Clearfix
 
@@ -164,18 +169,18 @@ border-radius: 4px
 
 We use the [Sass Indented Syntax](http://sass-lang.com/documentation/file.INDENTED_SYNTAX.html). Do not write SCSS (sassy CSS).
 
-If any ```$variable``` is *used in multiple file*, it should be put in base/_vars.sass. Others should be put at the top of the file where they're used.
+If any ```$variable``` is *used in multiple files*, it should be put in base/_vars.sass. Others should be put at the top of the file where they're used.
 
-If a ```@mixin``` is being *used in more than only file* it should be placed either in the context that it's being used (only used in checkout). If the ```@mixin``` is useful site wide, please put it base/_functions.sass. 
+If a ```@mixin``` is being *used in more than one file* it should be placed either in the context that it's being used (only used in checkout). If the ```@mixin``` is useful site wide, please put it base/_functions.sass. 
 
 Spaces. While indentation, property, and definition spacing is controlled by the Sass compiler, property declarations are not. Please put a space after commas. Example:
 
 ```
-Good:
+// Good
 .calendar-header
     font-family: comic-sans, Arial, Helvitica, Verdana
 
-Bad:
+// Bad
 .comic-sans-rocks
     font-family: comic-sans,Arial,Helvitica,Verdana
 ```
@@ -222,11 +227,11 @@ We use Paul Irish's [Conditional Stylesheets](http://www.paulirish.com/2008/cond
 Please use shorthand property wherever you can. Sass is very verbose on some of its properties. Example:
 
 ```
-Good:
+// Good
 .enfuago
     font: italic small-caps bold 12px comic-sans 
 
-Bad:
+// Bad
 .enfuago
     font:
         family: comic-sans
@@ -235,7 +240,7 @@ Bad:
         style: italic
         size: 12px
 
-Compiles to bad:
+// Compiles to bad
 
 .enfuago
     font-family: comic-sans
@@ -247,7 +252,7 @@ Compiles to bad:
 ```
 
 ####Partials
-We use partials whenever possible. Don't be shy to make a partial. Please create new partials wherever there are logical semantic breaks in styleing or sass functions.
+We use partials whenever possible. Don't be shy to make a partial. Please create new partials wherever there are logical semantic breaks in styling or sass functions.
 
 ```
 Good:
